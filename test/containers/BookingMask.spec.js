@@ -25,7 +25,7 @@ const props = {
     palette: {},
     sizes: {},
   },
-  airoportsList: {
+  airportsList: {
     data: [],
   },
 };
@@ -56,7 +56,7 @@ describe('BookingMask', () => {
   it('should have dispatched an action on mount', () => {
     expect(mockDispatch).toHaveBeenCalledWith({
       payload: {},
-      type: 'AIROPORTS_LIST_GET',
+      type: 'AIRPORTS_LIST_GET',
     });
   });
 
@@ -66,7 +66,7 @@ describe('BookingMask', () => {
         passangers: {},
         flightDates: {},
       },
-      airoportsList: {
+      airportsList: {
         data: {},
         status: STATUS.ERROR,
         message: 'Nothing found',

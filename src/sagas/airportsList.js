@@ -1,6 +1,6 @@
 /**
- * @module Sagas/airoportsList
- * @desc airoportsList
+ * @module Sagas/airportsList
+ * @desc airportsList
  */
 
 import { all, call, put, takeLatest } from 'redux-saga/effects';
@@ -14,21 +14,21 @@ export function* getAiroportsList() {
   try {
     const response = yield call(mimicRequest, 'https//sample-url');
     yield put({
-      type: ActionTypes.AIROPORTS_LIST_GET_SUCCESS,
+      type: ActionTypes.AIRPORTS_LIST_GET_SUCCESS,
       payload: { data: response },
     });
   } catch (err) {
     /* istanbul ignore next */
     yield put({
-      type: ActionTypes.AIROPORTS_LIST_GET_FAILURE,
+      type: ActionTypes.AIRPORTS_LIST_GET_FAILURE,
       payload: err,
     });
   }
 }
 
 /**
- * airoportsList Sagas
+ * airportsList Sagas
  */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.AIROPORTS_LIST_GET, getAiroportsList)]);
+  yield all([takeLatest(ActionTypes.AIRPORTS_LIST_GET, getAiroportsList)]);
 }

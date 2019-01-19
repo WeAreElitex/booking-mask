@@ -22,9 +22,9 @@ export const ActionTypes = keyMirror({
   BOOKING_SET_INVALID: undefined,
   BOOKING_UNSET_INVALID: undefined,
   BOOKING_URL_READY: undefined,
-  AIROPORTS_LIST_GET: undefined,
-  AIROPORTS_LIST_GET_SUCCESS: undefined,
-  AIROPORTS_LIST_GET_FAILURE: undefined,
+  AIRPORTS_LIST_GET: undefined,
+  AIRPORTS_LIST_GET_SUCCESS: undefined,
+  AIRPORTS_LIST_GET_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
 });

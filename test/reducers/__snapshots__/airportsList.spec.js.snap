@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking should handle AIRPORTS_LIST_GET 1`] = `
+Object {
+  "data": Array [],
+  "message": "",
+  "status": "running",
+}
+`;
+
+exports[`Booking should handle AIRPORTS_LIST_GET_FAILURE 1`] = `
+Object {
+  "data": Array [],
+  "message": "Something went wrong",
+  "status": "error",
+}
+`;
+
+exports[`Booking should handle AIRPORTS_LIST_GET_SUCCESS 1`] = `
+Object {
+  "data": Array [
+    "FOO",
+    "BAR",
+    "BAZ",
+  ],
+  "message": "",
+  "status": "ready",
+}
+`;
+
+exports[`Booking should return the initial state 1`] = `
+Object {
+  "data": Array [],
+  "message": "",
+  "status": "idle",
+}
+`;

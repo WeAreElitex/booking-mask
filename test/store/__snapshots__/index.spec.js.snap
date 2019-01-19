@@ -13,7 +13,7 @@ Object {
     "rehydrated": true,
     "version": -1,
   },
-  "airoportsList": Object {
+  "airportsList": Object {
     "data": Array [],
     "message": "",
     "status": "idle",

@@ -44,7 +44,7 @@ exports[`BookingMask should render properly 1`] = `
         data-testid="BookingMaskGridItem1"
       >
         <FlightDirection
-          airoportsList={
+          airportsList={
             Object {
               "data": Array [],
             }

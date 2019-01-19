@@ -11,7 +11,7 @@ import {
   unsetInvalid,
   changeFrom,
   changeTo,
-  airoportsListGet,
+  airportsListGet,
   togglePassangersDropdown,
   submit,
 } from 'actions/index';
@@ -43,7 +43,7 @@ const Url = styled.h3`
 
 export class BookingMask extends React.PureComponent {
   static propTypes = {
-    airoportsList: PropTypes.object.isRequired,
+    airportsList: PropTypes.object.isRequired,
     booking: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     isRoundTrip: PropTypes.bool.isRequired,
@@ -58,8 +58,8 @@ export class BookingMask extends React.PureComponent {
     const { dispatch } = this.props;
     const { changedTo } = treeChanges(this.props, nextProps);
 
-    if (changedTo('airoportsList.status', STATUS.ERROR)) {
-      dispatch(showAlert(nextProps.airoportsList.message, { variant: 'danger' }));
+    if (changedTo('airportsList.status', STATUS.ERROR)) {
+      dispatch(showAlert(nextProps.airportsList.message, { variant: 'danger' }));
     }
     // that allows to dismiss open date / route selectors on click
     if (
@@ -74,7 +74,7 @@ export class BookingMask extends React.PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     // preloding airoports list
-    dispatch(airoportsListGet());
+    dispatch(airportsListGet());
   }
 
   componentWillUnmount() {
@@ -180,7 +180,7 @@ export class BookingMask extends React.PureComponent {
   };
 
   render() {
-    const { booking, airoportsList } = this.props;
+    const { booking, airportsList } = this.props;
     const url = booking.url ? <Url data-testid="BookingMaskUrl">{booking.url}</Url> : '';
     const resultTheme = this.getTheme();
 
@@ -192,7 +192,7 @@ export class BookingMask extends React.PureComponent {
               <FlightDirection
                 from={booking.from}
                 to={booking.to}
-                airoportsList={airoportsList}
+                airportsList={airportsList}
                 fromInvalid={booking.invalid === 'from'}
                 toInvalid={booking.invalid === 'to'}
                 onChangeFrom={this.handleChangeFrom}
@@ -213,7 +213,7 @@ export class BookingMask extends React.PureComponent {
                   <DirectionsToggle
                     oneWay={booking.isRoundTrip}
                     onToggle={this.handleDirectionToggle}
-                    animate={airoportsList.status === 'running'}
+                    animate={airportsList.status === 'running'}
                     data-testid="BookingMaskDirectionsToggle"
                     theme={resultTheme}
                   />
@@ -257,7 +257,7 @@ export class BookingMask extends React.PureComponent {
 function mapStateToProps(state) {
   return {
     booking: state.booking,
-    airoportsList: state.airoportsList,
+    airportsList: state.airportsList,
     isRoundTrip: state.booking.isRoundTrip,
   };
 }

@@ -1,6 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Booking should handle undefined 1`] = `
+exports[`Booking should handle BOOKING_CHANGE_FLIGHT_DATES 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": undefined,
+    "return": undefined,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_CHANGE_FROM 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": "FOO",
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_CHANGE_PASSANGERS_NUMBER 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "total": 0,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_CHANGE_TO 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": "FOO",
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_SET_INVALID 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": undefined,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_TOGGLE_PASSANGERS_DROPDOWN 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": true,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle BOOKING_UNSET_INVALID 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -21,7 +144,7 @@ Object {
 }
 `;
 
-exports[`Booking should handle undefined 2`] = `
+exports[`Booking should handle BOOKING_URL_READY 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -38,11 +161,32 @@ Object {
   },
   "passangersDropdownIsOpen": false,
   "to": null,
+  "url": "BAZ",
+}
+`;
+
+exports[`Booking should handle TOGGLE_ROUND_TRIP 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": true,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
   "url": null,
 }
 `;
 
-exports[`Booking should handle undefined 3`] = `
+exports[`Booking should merge payload data to passangers object BOOKING_CHANGE_PASSANGERS_NUMBER 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -52,10 +196,8 @@ Object {
   "invalid": null,
   "isRoundTrip": false,
   "passangers": Object {
-    "adults": 1,
-    "children": 0,
-    "infants": 0,
-    "total": 1,
+    "infants": 20,
+    "total": 20,
   },
   "passangersDropdownIsOpen": false,
   "to": null,

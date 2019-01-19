@@ -1,10 +1,10 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import airoportsList, { getAiroportsList } from 'sagas/airoportsList';
+import airportsList, { getAiroportsList } from 'sagas/airportsList';
 import { mimicRequest } from 'modules/client';
 
-describe('airoportsList', () => {
+describe('airportsList', () => {
   it('should have the expected watchers', done =>
-    expectSaga(airoportsList)
+    expectSaga(airportsList)
       .run({ silenceTimeout: true })
       .then(saga => {
         expect(saga).toMatchSnapshot();
@@ -27,20 +27,20 @@ describe('airoportsList', () => {
 
       .run());
 
-  it('get airoports list saga should put AIROPORTS_LIST_GET_SUCCESS', () => {
+  it('get airoports list saga should put AIRPORTS_LIST_GET_SUCCESS', () => {
     jest.mock('modules/client', () => ({
       mimicRequest: () => ['foo', 'bar', 'baz'],
     }));
 
     expectSaga(getAiroportsList, { payload: {} })
       .put({
-        type: 'AIROPORTS_LIST_GET_SUCCESS',
+        type: 'AIRPORTS_LIST_GET_SUCCESS',
         payload: { data: ['foo', 'bar', 'baz'] },
       })
       .run();
   });
 
-  it('get airoports list saga should put AIROPORTS_LIST_GET_FAILURE on error', () => {
+  it('get airoports list saga should put AIRPORTS_LIST_GET_FAILURE on error', () => {
     jest.mock('modules/client', () => ({
       mimicRequest: () => {
         throw new Error('ups...');
@@ -49,7 +49,7 @@ describe('airoportsList', () => {
 
     expectSaga(getAiroportsList, { payload: {} })
       .put({
-        type: 'AIROPORTS_LIST_GET_FAILURE',
+        type: 'AIRPORTS_LIST_GET_FAILURE',
         payload: {},
       })
       .run();

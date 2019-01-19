@@ -32,15 +32,15 @@ const IconContainer = styled.div`
 
 export default class FlightDirection extends React.PureComponent {
   static propTypes = {
-    airoportsList: PropTypes.object.isRequired,
+    airportsList: PropTypes.object.isRequired,
     dismissInvalid: PropTypes.func.isRequired,
     from: PropTypes.string,
     fromInvalid: PropTypes.bool,
     onChangeFrom: PropTypes.func.isRequired,
     onChangeTo: PropTypes.func.isRequired,
+    theme: PropTypes.object,
     to: PropTypes.string,
     toInvalid: PropTypes.bool,
-    theme: PropTypes.object,
   };
 
   /**
@@ -65,7 +65,7 @@ export default class FlightDirection extends React.PureComponent {
 
   render() {
     const {
-      airoportsList,
+      airportsList,
       onChangeFrom,
       onChangeTo,
       theme,
@@ -74,8 +74,8 @@ export default class FlightDirection extends React.PureComponent {
       from: propsFrom,
       to: propsTo,
     } = this.props;
-    const from = airoportsList.data.find(opt => opt.code === propsFrom);
-    const to = airoportsList.data.find(opt => opt.code === propsTo);
+    const from = airportsList.data.find(opt => opt.code === propsFrom);
+    const to = airportsList.data.find(opt => opt.code === propsTo);
 
     return (
       <FlightDirectionWrapper theme={theme}>
@@ -86,7 +86,7 @@ export default class FlightDirection extends React.PureComponent {
         <StyledSelect
           id="fromInput"
           value={from}
-          options={airoportsList.data}
+          options={airportsList.data}
           menuIsOpen={fromInvalid ? true : undefined}
           onChange={onChangeFrom}
           getOptionLabel={this.getOptionLabel}
@@ -101,7 +101,7 @@ export default class FlightDirection extends React.PureComponent {
         <StyledSelect
           id="toInput"
           value={to}
-          options={airoportsList.data}
+          options={airportsList.data}
           menuIsOpen={toInvalid ? true : undefined}
           onChange={onChangeTo}
           getOptionLabel={this.getOptionLabel}

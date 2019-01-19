@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`airoportsList should have the expected watchers 1`] = `
+exports[`airportsList should have the expected watchers 1`] = `
 Object {
   "fork": Array [
     Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "AIROPORTS_LIST_GET",
+          "AIRPORTS_LIST_GET",
           "@@redux-saga-test-plan/json/function/getAiroportsList",
         ],
         "context": null,
@@ -19,7 +19,7 @@ Object {
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "AIROPORTS_LIST_GET",
+        "pattern": "AIRPORTS_LIST_GET",
       },
     },
   ],

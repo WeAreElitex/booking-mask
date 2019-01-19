@@ -1,9 +1,9 @@
 import app from './app';
 import booking from './booking';
-import airoportsList from './airoportsList';
+import airportsList from './airportsList';
 
 export default {
   ...app,
   ...booking,
-  ...airoportsList,
+  ...airportsList,
 };
