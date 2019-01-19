@@ -92,9 +92,9 @@ const ControlComponent = props => {
 };
 
 ControlComponent.propTypes = {
-  selectProps: PropTypes.object,
-  hasValue: PropTypes.bool,
   children: PropTypes.array,
+  hasValue: PropTypes.bool,
+  selectProps: PropTypes.object,
 };
 
 const IndicatorSeparator = ({ innerProps }) => {
@@ -102,7 +102,7 @@ const IndicatorSeparator = ({ innerProps }) => {
 };
 
 IndicatorSeparator.propTypes = {
-  innerProps: PropTypes.object.isRequired,
+  innerProps: PropTypes.object,
 };
 
 const OptionInner = React.memo(({ name, code }) => (
@@ -115,8 +115,8 @@ const OptionInner = React.memo(({ name, code }) => (
 ));
 
 OptionInner.propTypes = {
-  name: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 const Option = props => {
@@ -186,8 +186,8 @@ const StyledSelect = ({
 StyledSelect.propTypes = {
   components: PropTypes.object,
   theme: PropTypes.object,
-  withGrayBox: PropTypes.bool,
   withDropdownIndicator: PropTypes.bool,
+  withGrayBox: PropTypes.bool,
   withIndicatorSeparator: PropTypes.bool,
 };
 

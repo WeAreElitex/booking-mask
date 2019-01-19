@@ -24,7 +24,12 @@ export function parseError(error: string): string {
   return error || 'Something went wrong';
 }
 
-export function mimicRequest() {
+/**
+ * Mimic async request
+ *
+ * @returns {Promise}
+ */
+export function mimicRequest(): Promise<Array<Object>> {
   return new Promise(resolve => setTimeout(() => resolve(airportsList), 1000));
 }
 

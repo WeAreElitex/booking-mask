@@ -28,8 +28,11 @@ export function datasetToObject(elem: Element): Object {
  * @param {String} [postFix] - URL ending
  * @returns {String}
  */
-export function constructUrlFromBooking(booking: Object, prefix: String, postFix = ''): String {
-  // Eg: https://www.swiss.com/us/en/Book/Outbound/MIA-MAD/from-2017-12-05/adults-1/children-0/infants-0/class-economy/al-LX/sidmbvl
+export function constructUrlFromBooking(
+  booking: Object,
+  prefix: string,
+  postFix: string = '',
+): string {
   const passangers = `adults-${booking.passangers.adults}/children-${
     booking.passangers.children
   }/infants-${booking.passangers.infants}`;
