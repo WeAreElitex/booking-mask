@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking should handle undefined 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle undefined 2`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should handle undefined 3`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;
+
+exports[`Booking should return the initial state 1`] = `
+Object {
+  "flightDates": Object {
+    "departure": null,
+    "return": null,
+  },
+  "from": null,
+  "invalid": null,
+  "isRoundTrip": false,
+  "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
+    "total": 1,
+  },
+  "passangersDropdownIsOpen": false,
+  "to": null,
+  "url": null,
+}
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store should have a persistor 1`] = `
+Object {
+  "bootstrapped": true,
+  "registry": Array [],
+}
+`;
+
+exports[`store should have a store 1`] = `
+Object {
+  "_persist": Object {
+    "rehydrated": true,
+    "version": -1,
+  },
+  "airoportsList": Object {
+    "data": Array [],
+    "message": "",
+    "status": "idle",
+  },
+  "app": Object {
+    "alerts": Array [],
+  },
+  "booking": Object {
+    "flightDates": Object {
+      "departure": null,
+      "return": null,
+    },
+    "from": null,
+    "invalid": null,
+    "isRoundTrip": false,
+    "passangers": Object {
+      "adults": 1,
+      "children": 0,
+      "infants": 0,
+      "total": 1,
+    },
+    "passangersDropdownIsOpen": false,
+    "to": null,
+    "url": null,
+  },
+}
+`;

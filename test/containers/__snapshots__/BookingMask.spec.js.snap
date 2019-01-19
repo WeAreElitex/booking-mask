@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookingMask should render properly 1`] = `
+<div
+  data-testid="BookingMaskWrapper"
+  key="BookingMask"
+>
+  <React.Memo
+    theme={
+      Object {
+        "breakpoints": Array [
+          400,
+          768,
+          1024,
+          1280,
+          1920,
+        ],
+        "button": Object {
+          "borderRadius": Object {
+            "lg": 0,
+            "xl": 0,
+            "xs": 0,
+          },
+          "padding": Object {
+            "lg": Array [
+              12,
+              28,
+            ],
+            "xl": Array [
+              14,
+              32,
+            ],
+          },
+        },
+        "palette": Object {},
+        "sizes": Object {},
+      }
+    }
+  >
+    <BookingMaskGrid
+      data-testid="BookingMaskGrid"
+    >
+      <GridItem
+        data-testid="BookingMaskGridItem1"
+      >
+        <FlightDirection
+          airoportsList={
+            Object {
+              "data": Array [],
+            }
+          }
+          data-testid="BookingMaskFlightDirection"
+          dismissInvalid={[Function]}
+          fromInvalid={false}
+          onChangeFrom={[Function]}
+          onChangeTo={[Function]}
+          theme={
+            Object {
+              "breakpoints": Array [
+                400,
+                768,
+                1024,
+                1280,
+                1920,
+              ],
+              "button": Object {
+                "borderRadius": Object {
+                  "lg": 0,
+                  "xl": 0,
+                  "xs": 0,
+                },
+                "padding": Object {
+                  "lg": Array [
+                    12,
+                    28,
+                  ],
+                  "xl": Array [
+                    14,
+                    32,
+                  ],
+                },
+              },
+              "palette": Object {},
+              "sizes": Object {},
+            }
+          }
+          toInvalid={false}
+        />
+      </GridItem>
+      <GridItem
+        data-testid="BookingMaskGridItem2"
+      >
+        <FlightDates
+          customArrowIcon={
+            <DirectionsToggle
+              animate={false}
+              data-testid="BookingMaskDirectionsToggle"
+              onToggle={[Function]}
+              theme={
+                Object {
+                  "breakpoints": Array [
+                    400,
+                    768,
+                    1024,
+                    1280,
+                    1920,
+                  ],
+                  "button": Object {
+                    "borderRadius": Object {
+                      "lg": 0,
+                      "xl": 0,
+                      "xs": 0,
+                    },
+                    "padding": Object {
+                      "lg": Array [
+                        12,
+                        28,
+                      ],
+                      "xl": Array [
+                        14,
+                        32,
+                      ],
+                    },
+                  },
+                  "palette": Object {},
+                  "sizes": Object {},
+                }
+              }
+            />
+          }
+          flightDates={Object {}}
+          isInvalid={false}
+          onDatesChange={[Function]}
+          theme={
+            Object {
+              "breakpoints": Array [
+                400,
+                768,
+                1024,
+                1280,
+                1920,
+              ],
+              "button": Object {
+                "borderRadius": Object {
+                  "lg": 0,
+                  "xl": 0,
+                  "xs": 0,
+                },
+                "padding": Object {
+                  "lg": Array [
+                    12,
+                    28,
+                  ],
+                  "xl": Array [
+                    14,
+                    32,
+                  ],
+                },
+              },
+              "palette": Object {},
+              "sizes": Object {},
+            }
+          }
+        />
+      </GridItem>
+      <GridItem
+        data-testid="BookingMaskGridItem3"
+      >
+        <PassangersSelector
+          adultsCount={1}
+          adultsDescription="12+ years"
+          adultsLabel="Adults"
+          adultsMinLimit={1}
+          childrenCount={0}
+          childrenDescription="2-11 years"
+          childrenLabel="Children"
+          dropdownIsOpen={true}
+          infantsCount={0}
+          infantsDescription="0-1 years"
+          infantsLabel="Infants"
+          maxOfTheKind={20}
+          onChange={[Function]}
+          theme={
+            Object {
+              "breakpoints": Array [
+                400,
+                768,
+                1024,
+                1280,
+                1920,
+              ],
+              "button": Object {
+                "borderRadius": Object {
+                  "lg": 0,
+                  "xl": 0,
+                  "xs": 0,
+                },
+                "padding": Object {
+                  "lg": Array [
+                    12,
+                    28,
+                  ],
+                  "xl": Array [
+                    14,
+                    32,
+                  ],
+                },
+              },
+              "palette": Object {},
+              "sizes": Object {},
+            }
+          }
+          toggleDropdown={[Function]}
+          totalLabel="Passangers"
+        />
+      </GridItem>
+      <Spacer />
+      <Spacer />
+      <GridItem
+        data-testid="BookingMaskGridItem4"
+      >
+        <React.Memo
+          data-testid="BookingMaskSubmitButton"
+          onClick={[Function]}
+          size="lg"
+          theme={
+            Object {
+              "breakpoints": Array [
+                400,
+                768,
+                1024,
+                1280,
+                1920,
+              ],
+              "button": Object {
+                "borderRadius": Object {
+                  "lg": 0,
+                  "xl": 0,
+                  "xs": 0,
+                },
+                "padding": Object {
+                  "lg": Array [
+                    12,
+                    28,
+                  ],
+                  "xl": Array [
+                    14,
+                    32,
+                  ],
+                },
+              },
+              "palette": Object {},
+              "sizes": Object {},
+            }
+          }
+          type="submit"
+        >
+          Submit
+        </React.Memo>
+      </GridItem>
+    </BookingMaskGrid>
+  </React.Memo>
+</div>
+`;

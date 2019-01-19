@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App changeFlightDates should return an action 1`] = `
+Object {
+  "type": "BOOKING_CHANGE_FLIGHT_DATES",
+}
+`;
+
+exports[`App changeFrom should return an action 1`] = `
+Object {
+  "payload": Object {
+    "code": undefined,
+  },
+  "type": "BOOKING_CHANGE_FROM",
+}
+`;
+
+exports[`App changePassangersNumber should return an action 1`] = `
+Object {
+  "payload": Object {
+    "data": undefined,
+  },
+  "type": "BOOKING_CHANGE_PASSANGERS_NUMBER",
+}
+`;
+
+exports[`App changeTo should return an action 1`] = `
+Object {
+  "payload": Object {
+    "code": undefined,
+  },
+  "type": "BOOKING_CHANGE_TO",
+}
+`;
+
+exports[`App submit should return an action 1`] = `
+Object {
+  "payload": Object {},
+  "type": "BOOKING_SUBMIT",
+}
+`;
+
+exports[`App unsetInvalid should return an action 1`] = `
+Object {
+  "payload": Object {},
+  "type": "BOOKING_UNSET_INVALID",
+}
+`;

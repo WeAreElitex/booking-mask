@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`booking should have the expected watchers 1`] = `
+Object {
+  "fork": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "BOOKING_SUBMIT",
+          "@@redux-saga-test-plan/json/function/validateDepartureData",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeLatest",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "BOOKING_SUBMIT_SUCCESS",
+          "@@redux-saga-test-plan/json/function/makeRedirect",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeLatest",
+      },
+    },
+  ],
+  "take": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "BOOKING_SUBMIT",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "BOOKING_SUBMIT_SUCCESS",
+      },
+    },
+  ],
+}
+`;
