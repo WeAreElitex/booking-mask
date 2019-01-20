@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import treeChanges from 'tree-changes';
 import {
   showAlert,
@@ -185,70 +185,67 @@ export class BookingMask extends React.PureComponent {
     const resultTheme = this.getTheme();
 
     return (
-      <div key="BookingMask" data-testid="BookingMaskWrapper">
-        <StyledContainer theme={resultTheme}>
-          <BookingMaskGrid data-testid="BookingMaskGrid">
-            <GridItem data-testid="BookingMaskGridItem1">
-              <FlightDirection
-                from={booking.from}
-                to={booking.to}
-                airportsList={airportsList}
-                fromInvalid={booking.invalid === 'from'}
-                toInvalid={booking.invalid === 'to'}
-                onChangeFrom={this.handleChangeFrom}
-                onChangeTo={this.handleChangeTo}
-                dismissInvalid={this.dismissInvalid}
-                data-testid="BookingMaskFlightDirection"
-                theme={resultTheme}
-              />
-            </GridItem>
-            <GridItem data-testid="BookingMaskGridItem2">
-              <FlightDates
-                flightDates={booking.flightDates}
-                isRoundTrip={booking.isRoundTrip}
-                onDatesChange={this.handleDatesChange}
-                isInvalid={booking.invalid === 'departure'}
-                theme={resultTheme}
-                customArrowIcon={
-                  <DirectionsToggle
-                    oneWay={booking.isRoundTrip}
-                    onToggle={this.handleDirectionToggle}
-                    animate={airportsList.status === 'running'}
-                    data-testid="BookingMaskDirectionsToggle"
-                    theme={resultTheme}
-                  />
-                }
-              />
-            </GridItem>
-            <GridItem data-testid="BookingMaskGridItem3">
-              <PassangersSelector
-                onChange={this.handlePassangersChange}
-                total={booking.passangers.total}
-                adultsCount={booking.passangers.adults}
-                childrenCount={booking.passangers.children}
-                infantsCount={booking.passangers.infants}
-                toggleDropdown={this.togglePassangersDropdown}
-                dropdownIsOpen={booking.passangersDropdownIsOpen}
-                theme={resultTheme}
-              />
-            </GridItem>
-            <Spacer />
-            <Spacer />
-            <GridItem data-testid="BookingMaskGridItem4">
-              <SubmitButton
-                theme={resultTheme}
-                size="lg"
-                type="submit"
-                data-testid="BookingMaskSubmitButton"
-                onClick={this.onSubmit}
-              >
-                Submit
-              </SubmitButton>
-            </GridItem>
-          </BookingMaskGrid>
-        </StyledContainer>
-        {url}
-      </div>
+      <ThemeProvider theme={resultTheme}>
+        <div key="BookingMask" data-testid="BookingMaskWrapper">
+          <StyledContainer>
+            <BookingMaskGrid data-testid="BookingMaskGrid">
+              <GridItem data-testid="BookingMaskGridItem1">
+                <FlightDirection
+                  from={booking.from}
+                  to={booking.to}
+                  airportsList={airportsList}
+                  fromInvalid={booking.invalid === 'from'}
+                  toInvalid={booking.invalid === 'to'}
+                  onChangeFrom={this.handleChangeFrom}
+                  onChangeTo={this.handleChangeTo}
+                  dismissInvalid={this.dismissInvalid}
+                  data-testid="BookingMaskFlightDirection"
+                />
+              </GridItem>
+              <GridItem data-testid="BookingMaskGridItem2">
+                <FlightDates
+                  flightDates={booking.flightDates}
+                  isRoundTrip={booking.isRoundTrip}
+                  onDatesChange={this.handleDatesChange}
+                  isInvalid={booking.invalid === 'departure'}
+                  customArrowIcon={
+                    <DirectionsToggle
+                      oneWay={booking.isRoundTrip}
+                      onToggle={this.handleDirectionToggle}
+                      animate={airportsList.status === 'running'}
+                      data-testid="BookingMaskDirectionsToggle"
+                    />
+                  }
+                />
+              </GridItem>
+              <GridItem data-testid="BookingMaskGridItem3">
+                <PassangersSelector
+                  onChange={this.handlePassangersChange}
+                  total={booking.passangers.total}
+                  adultsCount={booking.passangers.adults}
+                  childrenCount={booking.passangers.children}
+                  infantsCount={booking.passangers.infants}
+                  toggleDropdown={this.togglePassangersDropdown}
+                  dropdownIsOpen={booking.passangersDropdownIsOpen}
+                />
+              </GridItem>
+              <Spacer />
+              <Spacer />
+              <GridItem data-testid="BookingMaskGridItem4">
+                <SubmitButton
+                  size="lg"
+                  type="submit"
+                  data-testid="BookingMaskSubmitButton"
+                  onClick={this.onSubmit}
+                >
+                  Submit
+                </SubmitButton>
+              </GridItem>
+            </BookingMaskGrid>
+          </StyledContainer>
+          {url}
+        </div>
+      </ThemeProvider>
     );
   }
 }

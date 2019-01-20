@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import Icon from 'components/Icon';
-
 import { ButtonGroup, Button } from 'styled-minimal';
 
 export const StyledButtonGroup = styled(ButtonGroup)`
@@ -52,9 +51,9 @@ const DirectionsToggle = ({ oneWay, onToggle, animate, theme }) => (
 
 DirectionsToggle.propTypes = {
   animate: PropTypes.bool,
-  theme: PropTypes.object.isRequired,
   oneWay: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
-export default DirectionsToggle;
+export default withTheme(React.memo(DirectionsToggle));

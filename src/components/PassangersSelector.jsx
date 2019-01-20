@@ -23,23 +23,22 @@ const OptionHeader = styled.h3`
 
 export default class PassangersSelector extends React.PureComponent {
   static propTypes = {
-    toggleDropdown: PropTypes.func.isRequired,
-    dropdownIsOpen: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
-    total: PropTypes.number.isRequired,
     adultsCount: PropTypes.number,
+    adultsDescription: PropTypes.string,
     adultsLabel: PropTypes.string,
     adultsMinLimit: PropTypes.number,
     childrenCount: PropTypes.number,
+    childrenDescription: PropTypes.string,
     childrenLabel: PropTypes.string,
+    dropdownIsOpen: PropTypes.bool,
     infantsCount: PropTypes.number,
+    infantsDescription: PropTypes.string,
     infantsLabel: PropTypes.string,
     maxOfTheKind: PropTypes.number,
+    onChange: PropTypes.func.isRequired,
+    toggleDropdown: PropTypes.func.isRequired,
+    total: PropTypes.number.isRequired,
     totalLabel: PropTypes.string,
-    childrenDescription: PropTypes.string,
-    infantsDescription: PropTypes.string,
-    adultsDescription: PropTypes.string,
-    theme: PropTypes.object,
   };
 
   static defaultProps = {
@@ -159,7 +158,7 @@ export default class PassangersSelector extends React.PureComponent {
     const options = this.getOptions(props);
     return options.map(option => (
       <DropdownItem key={option.value} disabled>
-        <OptionContainer theme={props.theme}>
+        <OptionContainer>
           <OptionHeader>
             <span>{option.label}</span>
             <div>{option.description}</div>
@@ -178,12 +177,12 @@ export default class PassangersSelector extends React.PureComponent {
   };
 
   render() {
-    const { totalLabel, total, dropdownIsOpen, toggleDropdown, theme } = this.props;
+    const { totalLabel, total, dropdownIsOpen, toggleDropdown } = this.props;
     const menuItems = this.getMenuItems(this.props);
 
     return (
       <Dropdown isOpen={dropdownIsOpen} toggle={toggleDropdown} size="lg">
-        <StyledDropdownToggle theme={theme} color="light" caret>
+        <StyledDropdownToggle color="light" caret>
           <div>{`${totalLabel} ${total}`}</div>
         </StyledDropdownToggle>
         <DropdownMenu>

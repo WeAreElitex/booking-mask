@@ -55,7 +55,7 @@ export default {
       [ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER]: (state, { payload }) => {
         const total = Object.keys(payload.data).reduce((acc, key) => acc + payload.data[key], 0);
         return immutable(state, {
-          passangers: { $set: Object.assign({ total }, payload.data) },
+          passangers: { $set: Object.assign({}, state.passangers, payload.data, { total }) },
           url: { $set: null },
         });
       },

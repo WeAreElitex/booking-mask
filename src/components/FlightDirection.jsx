@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { utils } from 'styled-minimal';
 import Icon from 'components/Icon';
 import InvalidStateTooltip from 'components/InvalidStateTooltip';
@@ -22,7 +22,7 @@ const IconContainer = styled.div`
     padding-bottom: ${spacer(1)};
     padding-top: ${spacer(1)};
     position: absolute;
-    background-color: white;
+    background-color: ${props => props.theme.palette.inputBackgroundColor};
     right: 7px;
     width: 24px !important;
     text-transform: uppercase;
@@ -30,7 +30,7 @@ const IconContainer = styled.div`
   }
 `;
 
-export default class FlightDirection extends React.PureComponent {
+class FlightDirection extends React.PureComponent {
   static propTypes = {
     airportsList: PropTypes.object.isRequired,
     dismissInvalid: PropTypes.func.isRequired,
@@ -78,11 +78,8 @@ export default class FlightDirection extends React.PureComponent {
     const to = airportsList.data.find(opt => opt.code === propsTo);
 
     return (
-      <FlightDirectionWrapper theme={theme}>
-        <InvalidStateTooltip
-          isOpen={fromInvalid || toInvalid}
-          target={fromInvalid ? 'fromInput' : 'toInput'}
-        />
+      <FlightDirectionWrapper>
+        <InvalidStateTooltip isOpen={fromInvalid} target="fromInput" />
         <StyledSelect
           id="fromInput"
           value={from}
@@ -93,7 +90,6 @@ export default class FlightDirection extends React.PureComponent {
           getOptionValue={this.getOptionValue}
           withGrayBox={true}
           placeholder="From"
-          theme={theme}
         />
         <IconContainer>
           <Icon name="plane" color={theme.palette.defaultIconColor} width={16} />
@@ -108,9 +104,11 @@ export default class FlightDirection extends React.PureComponent {
           getOptionValue={this.getOptionValue}
           withGrayBox={true}
           placeholder="To"
-          theme={theme}
         />
+        <InvalidStateTooltip isOpen={toInvalid} target="toInput" />
       </FlightDirectionWrapper>
     );
   }
 }
+
+export default withTheme(FlightDirection);

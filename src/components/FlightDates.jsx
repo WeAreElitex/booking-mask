@@ -7,6 +7,7 @@ import InvalidStateTooltip from 'components/InvalidStateTooltip';
 import DateRangePickerWrapper from 'components/DateRangePickerWrapper';
 import memoize from 'lodash/memoize';
 import rgba from 'polished/lib/color/rgba';
+import { withTheme } from 'styled-components';
 
 const getStyles = memoize(theme => {
   const selectedStyles = {
@@ -56,11 +57,11 @@ class FlightDates extends React.PureComponent {
   };
 
   static propTypes = {
-    onDatesChange: PropTypes.func.isRequired,
-    isRoundTrip: PropTypes.bool.isRequired,
-    isInvalid: PropTypes.bool.isRequired,
-    flightDates: PropTypes.object,
     customArrowIcon: PropTypes.node,
+    flightDates: PropTypes.object,
+    isInvalid: PropTypes.bool.isRequired,
+    isRoundTrip: PropTypes.bool.isRequired,
+    onDatesChange: PropTypes.func.isRequired,
     theme: PropTypes.object,
   };
 
@@ -122,4 +123,4 @@ class FlightDates extends React.PureComponent {
   }
 }
 
-export default FlightDates;
+export default withTheme(FlightDates);

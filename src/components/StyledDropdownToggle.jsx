@@ -1,40 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled, { withTheme } from 'styled-components';
 import { DropdownToggle } from 'reactstrap';
 
-const getButton = ({ sizes, palette }) =>
-  styled(DropdownToggle)`
-    height: ${sizes.controlHeight}px;
-    border-radius: 0 !important;
-    min-width: ${sizes.inputMinWidth + 100}px;
+const StyledDropdownToggle = styled(DropdownToggle)`
+  height: ${props => props.theme.sizes.controlHeight}px;
+  border-radius: ${props => props.theme.input.borderRadius.default} !important;
+  min-width: ${props => props.theme.sizes.inputMinWidth + 100}px;
+  display: flex;
+  flex-grow: 1;
+  background-color: ${props => props.theme.palette.inputBackgroundColor} !important;
+  border-color: ${props => props.theme.palette.borderColor};
+  border-radius: ${props => props.theme.input.borderRadius.default} !important;
+  width: 100%;
+  display: table-cell;
+  &:after {
+    position: absolute;
+    right: 10px;
+    top: ${props => props.theme.sizes.controlHeight / 2}px;
+  }
+  div {
     display: flex;
-    flex-grow: 1;
-    background-color: white !important;
-    border-color: ${palette.borderColor};
-    border-radius: 0 !important;
-    width: 100%;
-    display: table-cell;
-    &:after {
-      position: absolute;
-      right: 10px;
-      top: ${sizes.controlHeight / 2}px;
-    }
-    div {
-      display: flex;
-      font-size: 1.5rem;
-      color: ${palette.textDefaultColor};
-    }
-  `;
+    font-size: ${props => props.theme.sizes.inputFontSize};
+    color: ${props => props.theme.palette.textDefaultColor};
+  }
+`;
 
-const StyledDropdownToggle = ({ theme, ...props }) => {
-  const StyledDropToggle = getButton(theme);
-
-  return <StyledDropToggle {...props} />;
-};
-
-StyledDropdownToggle.propTypes = {
-  theme: PropTypes.object,
-};
-
-export default React.memo(StyledDropdownToggle);
+export default withTheme(React.memo(StyledDropdownToggle));

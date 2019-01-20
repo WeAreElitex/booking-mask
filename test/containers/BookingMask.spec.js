@@ -42,11 +42,11 @@ describe('BookingMask', () => {
   });
 
   it('should render a FlightDirection', () => {
-    expect(wrapper.find('FlightDirection')).toExist();
+    expect(wrapper.find('WithTheme(FlightDirection)')).toExist();
   });
 
   it('should render a FlightDates', () => {
-    expect(wrapper.find('FlightDates')).toExist();
+    expect(wrapper.find('WithTheme(FlightDates)')).toExist();
   });
 
   it('should render a PassangersSelector', () => {

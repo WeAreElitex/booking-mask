@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import memoize from 'lodash/memoize';
 import { utils } from 'styled-minimal';
 import Select, { components } from 'react-select';
@@ -105,19 +105,21 @@ IndicatorSeparator.propTypes = {
   innerProps: PropTypes.object,
 };
 
-const OptionInner = React.memo(({ name, code }) => (
+const OptInner = ({ name, code }) => (
   <div style={{ display: 'flex' }}>
     <div style={{ width: 'calc(100% - 25px)' }}>
       <TextTruncate line={1} text={name} />
     </div>
     <InlineGrayBox>{code}</InlineGrayBox>
   </div>
-));
+);
 
-OptionInner.propTypes = {
+OptInner.propTypes = {
   code: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
+
+const OptionInner = React.memo(OptInner);
 
 const Option = props => {
   const { data } = props;
@@ -195,4 +197,4 @@ StyledSelect.defaultProps = {
   components: {},
 };
 
-export default React.memo(StyledSelect);
+export default withTheme(React.memo(StyledSelect));

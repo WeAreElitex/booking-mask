@@ -52,6 +52,9 @@ Object {
   "invalid": null,
   "isRoundTrip": false,
   "passangers": Object {
+    "adults": 1,
+    "children": 0,
+    "infants": 0,
     "total": 0,
   },
   "passangersDropdownIsOpen": false,
@@ -196,6 +199,8 @@ Object {
   "invalid": null,
   "isRoundTrip": false,
   "passangers": Object {
+    "adults": 1,
+    "children": 0,
     "infants": 20,
     "total": 20,
   },
