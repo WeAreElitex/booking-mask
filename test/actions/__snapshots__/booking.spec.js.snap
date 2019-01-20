@@ -40,6 +40,13 @@ Object {
 }
 `;
 
+exports[`App togglePassangersDropdown should return an action 1`] = `
+Object {
+  "payload": Object {},
+  "type": "BOOKING_TOGGLE_PASSANGERS_DROPDOWN",
+}
+`;
+
 exports[`App unsetInvalid should return an action 1`] = `
 Object {
   "payload": Object {},

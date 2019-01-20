@@ -5,6 +5,7 @@ import {
   changeFlightDates,
   submit,
   unsetInvalid,
+  togglePassangersDropdown,
 } from 'actions/booking';
 
 describe('App', () => {
@@ -30,5 +31,9 @@ describe('App', () => {
 
   it('unsetInvalid should return an action', () => {
     expect(unsetInvalid()).toMatchSnapshot();
+  });
+
+  it('togglePassangersDropdown should return an action', () => {
+    expect(togglePassangersDropdown()).toMatchSnapshot();
   });
 });

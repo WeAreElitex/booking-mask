@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App airportsListGet should return an action 1`] = `
+Object {
+  "payload": Object {},
+  "type": "AIRPORTS_LIST_GET",
+}
+`;

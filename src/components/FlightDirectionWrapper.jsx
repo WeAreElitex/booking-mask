@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const FlightDirectionWrapper = styled.div`
@@ -13,4 +12,4 @@ const FlightDirectionWrapper = styled.div`
   }
 `;
 
-export default React.memo(FlightDirectionWrapper);
+export default FlightDirectionWrapper;

@@ -8,7 +8,6 @@ import { createActions } from 'redux-actions';
 import { ActionTypes } from 'constants/index';
 
 export const {
-  bookingGetRepos: getRepos,
   bookingChangePassangersNumber: changePassangersNumber,
   bookingChangeFrom: changeFrom,
   bookingChangeTo: changeTo,

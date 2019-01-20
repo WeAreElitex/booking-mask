@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlightDirectionWrapper should render properly 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "FlightDirectionWrapper-sc-196p4bb-0",
+        "isStatic": false,
+        "rules": Array [
+          "height:",
+          [Function],
+          "px;min-width:",
+          [Function],
+          "px;display:flex;align-items:center;& > div{display:flex;padding:0;margin:0;}",
+        ],
+      },
+      "displayName": "FlightDirectionWrapper",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "FlightDirectionWrapper-sc-196p4bb-0",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+  theme={
+    Object {
+      "breakpoints": Array [
+        400,
+        768,
+        1024,
+        1280,
+        1920,
+      ],
+      "button": Object {
+        "borderRadius": Object {
+          "lg": 0,
+          "xl": 0,
+          "xs": 0,
+        },
+        "padding": Object {
+          "lg": Array [
+            12,
+            28,
+          ],
+          "xl": Array [
+            14,
+            32,
+          ],
+        },
+      },
+      "input": Object {
+        "borderRadius": Object {
+          "default": 0,
+          "lg": 0,
+          "xl": 0,
+          "xs": 0,
+        },
+      },
+      "palette": Object {
+        "actionColor": "#66b4e5",
+        "appColor": "#00b4d5",
+        "borderColor": "rgb(204, 204, 204)",
+        "defaultIconColor": "#444",
+        "defaultTextColor": "#555",
+        "inputBackgroundColor": "#fff",
+        "primary": "#00b4d5",
+        "secondary": "#88e4f5",
+      },
+      "sizes": Object {
+        "borderColor": "rgb(204, 204, 204)",
+        "controlHeight": 55,
+        "inputFontSize": "1.5rem",
+        "inputMinWidth": 150,
+        "rowHeight": 70,
+      },
+    }
+  }
+/>
+`;

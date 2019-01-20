@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Container, utils } from 'styled-minimal';
 
@@ -22,4 +21,4 @@ const OptionContainer = styled(Container)`
   }
 `;
 
-export default React.memo(OptionContainer);
+export default OptionContainer;

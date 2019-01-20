@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const FlightDatesWrapper = styled.div`
@@ -40,4 +39,4 @@ const FlightDatesWrapper = styled.div`
   }
 `;
 
-export default React.memo(FlightDatesWrapper);
+export default FlightDatesWrapper;
