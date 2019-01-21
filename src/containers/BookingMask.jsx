@@ -6,13 +6,13 @@ import treeChanges from 'tree-changes';
 import {
   showAlert,
   toggleRoundTrip,
-  changePassangersNumber,
+  changePassengersNumber,
   changeFlightDates,
   unsetInvalid,
   changeFrom,
   changeTo,
   airportsListGet,
-  togglePassangersDropdown,
+  togglePassengersDropdown,
   submit,
 } from 'actions/index';
 import { STATUS } from 'constants/index';
@@ -21,7 +21,7 @@ import { Box } from 'styled-minimal';
 
 // project components
 import FlightDates from 'components/FlightDates';
-import PassangersSelector from 'components/PassangersSelector';
+import PassengersSelector from 'components/PassengersSelector';
 import DirectionsToggle from 'components/DirectionsToggle';
 import FlightDirection from '../components/FlightDirection';
 import StyledContainer from '../components/StyledContainer';
@@ -105,10 +105,10 @@ export class BookingMask extends React.PureComponent {
    * Flight departure airport change event handler
    * @memberof BookingMask
    */
-  togglePassangersDropdown = () => {
+  togglePassengersDropdown = () => {
     const { dispatch } = this.props;
 
-    dispatch(togglePassangersDropdown());
+    dispatch(togglePassengersDropdown());
   };
 
   /**
@@ -148,14 +148,14 @@ export class BookingMask extends React.PureComponent {
   };
 
   /**
-   * Passangers number change event handler
-   * @param {Object} passangersCountObject
+   * Passengers number change event handler
+   * @param {Object} passengersCountObject
    * @memberof BookingMask
    */
-  handlePassangersChange = passangersCountObject => {
+  handlePassengersChange = passengersCountObject => {
     const { dispatch } = this.props;
 
-    dispatch(changePassangersNumber(passangersCountObject));
+    dispatch(changePassengersNumber(passengersCountObject));
   };
 
   /**
@@ -219,14 +219,14 @@ export class BookingMask extends React.PureComponent {
                 />
               </GridItem>
               <GridItem data-testid="BookingMaskGridItem3">
-                <PassangersSelector
-                  onChange={this.handlePassangersChange}
-                  total={booking.passangers.total}
-                  adultsCount={booking.passangers.adults}
-                  childrenCount={booking.passangers.children}
-                  infantsCount={booking.passangers.infants}
-                  toggleDropdown={this.togglePassangersDropdown}
-                  dropdownIsOpen={booking.passangersDropdownIsOpen}
+                <PassengersSelector
+                  onChange={this.handlePassengersChange}
+                  total={booking.passengers.total}
+                  adultsCount={booking.passengers.adults}
+                  childrenCount={booking.passengers.children}
+                  infantsCount={booking.passengers.infants}
+                  toggleDropdown={this.togglePassengersDropdown}
+                  dropdownIsOpen={booking.passengersDropdownIsOpen}
                 />
               </GridItem>
               <Spacer />

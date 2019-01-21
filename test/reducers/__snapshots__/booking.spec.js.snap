@@ -9,13 +9,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
@@ -30,19 +30,19 @@ Object {
   "from": "FOO",
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
 `;
 
-exports[`Booking should handle BOOKING_CHANGE_PASSANGERS_NUMBER 1`] = `
+exports[`Booking should handle BOOKING_CHANGE_PASSENGERS_NUMBER 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -51,13 +51,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 0,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
@@ -72,13 +72,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": "FOO",
   "url": null,
 }
@@ -93,19 +93,19 @@ Object {
   "from": null,
   "invalid": undefined,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
 `;
 
-exports[`Booking should handle BOOKING_TOGGLE_PASSANGERS_DROPDOWN 1`] = `
+exports[`Booking should handle BOOKING_TOGGLE_PASSENGERS_DROPDOWN 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -114,13 +114,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": true,
+  "passengersDropdownIsOpen": true,
   "to": null,
   "url": null,
 }
@@ -135,13 +135,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
@@ -156,13 +156,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": "BAZ",
 }
@@ -177,19 +177,19 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": true,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
 `;
 
-exports[`Booking should merge payload data to passangers object BOOKING_CHANGE_PASSANGERS_NUMBER 1`] = `
+exports[`Booking should merge payload data to passengers object BOOKING_CHANGE_PASSENGERS_NUMBER 1`] = `
 Object {
   "flightDates": Object {
     "departure": null,
@@ -198,13 +198,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 20,
     "total": 20,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }
@@ -219,13 +219,13 @@ Object {
   "from": null,
   "invalid": null,
   "isRoundTrip": false,
-  "passangers": Object {
+  "passengers": Object {
     "adults": 1,
     "children": 0,
     "infants": 0,
     "total": 1,
   },
-  "passangersDropdownIsOpen": false,
+  "passengersDropdownIsOpen": false,
   "to": null,
   "url": null,
 }

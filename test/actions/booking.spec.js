@@ -1,16 +1,16 @@
 import {
-  changePassangersNumber,
+  changePassengersNumber,
   changeFrom,
   changeTo,
   changeFlightDates,
   submit,
   unsetInvalid,
-  togglePassangersDropdown,
+  togglePassengersDropdown,
 } from 'actions/booking';
 
 describe('App', () => {
-  it('changePassangersNumber should return an action', () => {
-    expect(changePassangersNumber()).toMatchSnapshot();
+  it('changePassengersNumber should return an action', () => {
+    expect(changePassengersNumber()).toMatchSnapshot();
   });
 
   it('changeFrom should return an action', () => {
@@ -33,7 +33,7 @@ describe('App', () => {
     expect(unsetInvalid()).toMatchSnapshot();
   });
 
-  it('togglePassangersDropdown should return an action', () => {
-    expect(togglePassangersDropdown()).toMatchSnapshot();
+  it('togglePassengersDropdown should return an action', () => {
+    expect(togglePassengersDropdown()).toMatchSnapshot();
   });
 });

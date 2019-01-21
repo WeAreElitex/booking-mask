@@ -15,12 +15,12 @@ Object {
 }
 `;
 
-exports[`App changePassangersNumber should return an action 1`] = `
+exports[`App changePassengersNumber should return an action 1`] = `
 Object {
   "payload": Object {
     "data": undefined,
   },
-  "type": "BOOKING_CHANGE_PASSANGERS_NUMBER",
+  "type": "BOOKING_CHANGE_PASSENGERS_NUMBER",
 }
 `;
 
@@ -40,10 +40,10 @@ Object {
 }
 `;
 
-exports[`App togglePassangersDropdown should return an action 1`] = `
+exports[`App togglePassengersDropdown should return an action 1`] = `
 Object {
   "payload": Object {},
-  "type": "BOOKING_TOGGLE_PASSANGERS_DROPDOWN",
+  "type": "BOOKING_TOGGLE_PASSENGERS_DROPDOWN",
 }
 `;
 

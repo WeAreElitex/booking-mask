@@ -12,8 +12,8 @@ import keyMirror from 'fbjs/lib/keyMirror';
 export const ActionTypes = keyMirror({
   EXCEPTION: undefined,
   TOGGLE_ROUND_TRIP: undefined,
-  BOOKING_TOGGLE_PASSANGERS_DROPDOWN: undefined,
-  BOOKING_CHANGE_PASSANGERS_NUMBER: undefined,
+  BOOKING_TOGGLE_PASSENGERS_DROPDOWN: undefined,
+  BOOKING_CHANGE_PASSENGERS_NUMBER: undefined,
   BOOKING_CHANGE_FROM: undefined,
   BOOKING_CHANGE_TO: undefined,
   BOOKING_CHANGE_FLIGHT_DATES: undefined,

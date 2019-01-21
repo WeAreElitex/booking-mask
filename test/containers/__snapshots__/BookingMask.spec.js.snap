@@ -85,7 +85,7 @@ exports[`BookingMask should render properly 1`] = `
         <GridItem
           data-testid="BookingMaskGridItem3"
         >
-          <PassangersSelector
+          <PassengersSelector
             adultsCount={1}
             adultsDescription="12+ years"
             adultsLabel="Adults"
@@ -100,7 +100,7 @@ exports[`BookingMask should render properly 1`] = `
             maxOfTheKind={20}
             onChange={[Function]}
             toggleDropdown={[Function]}
-            totalLabel="Passangers"
+            totalLabel="Passengers"
           />
         </GridItem>
         <Spacer />

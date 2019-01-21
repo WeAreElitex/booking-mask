@@ -9,9 +9,9 @@ const props = {
   dispatch: mockDispatch,
   booking: {
     flightDates: {},
-    passangers: {},
+    passengers: {},
   },
-  passangers: {
+  passengers: {
     total: 1,
     adults: 1,
     children: 0,
@@ -49,8 +49,8 @@ describe('BookingMask', () => {
     expect(wrapper.find('WithTheme(FlightDates)')).toExist();
   });
 
-  it('should render a PassangersSelector', () => {
-    expect(wrapper.find('PassangersSelector')).toExist();
+  it('should render a PassengersSelector', () => {
+    expect(wrapper.find('PassengersSelector')).toExist();
   });
 
   it('should have dispatched an action on mount', () => {
@@ -63,7 +63,7 @@ describe('BookingMask', () => {
   it('should dispatch an alert', () => {
     wrapper.setProps({
       booking: {
-        passangers: {},
+        passengers: {},
         flightDates: {},
       },
       airportsList: {
@@ -115,13 +115,13 @@ describe('BookingMask', () => {
       type: 'TOGGLE_ROUND_TRIP',
     });
   });
-  it('should dispatch an action when togglePassangersDropdown method is called', () => {
+  it('should dispatch an action when togglePassengersDropdown method is called', () => {
     const instance = wrapper.instance();
-    instance.togglePassangersDropdown();
+    instance.togglePassengersDropdown();
 
     expect(mockDispatch).toHaveBeenCalledWith({
       payload: {},
-      type: 'BOOKING_TOGGLE_PASSANGERS_DROPDOWN',
+      type: 'BOOKING_TOGGLE_PASSENGERS_DROPDOWN',
     });
   });
   it('should dispatch an action when handleChangeFrom method is called', () => {
@@ -151,13 +151,13 @@ describe('BookingMask', () => {
       type: 'BOOKING_CHANGE_FLIGHT_DATES',
     });
   });
-  it('should dispatch an action when handlePassangersChange method is called', () => {
+  it('should dispatch an action when handlePassengersChange method is called', () => {
     const instance = wrapper.instance();
-    instance.handlePassangersChange({ adults: 1, childs: 1, infants: 1 });
+    instance.handlePassengersChange({ adults: 1, childs: 1, infants: 1 });
 
     expect(mockDispatch).toHaveBeenCalledWith({
       payload: { data: { adults: 1, childs: 1, infants: 1 } },
-      type: 'BOOKING_CHANGE_PASSANGERS_NUMBER',
+      type: 'BOOKING_CHANGE_PASSENGERS_NUMBER',
     });
   });
 });

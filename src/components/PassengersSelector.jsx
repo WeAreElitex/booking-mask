@@ -21,7 +21,7 @@ const OptionHeader = styled.h3`
   }
 `;
 
-export default class PassangersSelector extends React.PureComponent {
+export default class PassengersSelector extends React.PureComponent {
   static propTypes = {
     adultsCount: PropTypes.number,
     adultsDescription: PropTypes.string,
@@ -51,7 +51,7 @@ export default class PassangersSelector extends React.PureComponent {
     adultsLabel: 'Adults',
     childrenLabel: 'Children',
     infantsLabel: 'Infants',
-    totalLabel: 'Passangers',
+    totalLabel: 'Passengers',
     childrenDescription: '2-11 years',
     infantsDescription: '0-1 years',
     adultsDescription: '12+ years',
@@ -62,7 +62,7 @@ export default class PassangersSelector extends React.PureComponent {
   /**
    * Return object with current coun values from props
    * @return {Object}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getCurrentCountObject() {
     const { props } = this;
@@ -77,7 +77,7 @@ export default class PassangersSelector extends React.PureComponent {
    * @param {String} name
    * @param {String} newCount
    * @return {Object}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   handleCountChange = (name, newCount) =>
     Object.assign({}, this.getCurrentCountObject(), { [name]: newCount });
@@ -87,7 +87,7 @@ export default class PassangersSelector extends React.PureComponent {
    * for a specified name.
    * @param {String} name
    * @return {Function}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getCountHandler = name => newCount => {
     const { onChange } = this.props;
@@ -100,7 +100,7 @@ export default class PassangersSelector extends React.PureComponent {
    * @param {String} name
    * @param {React.Props} props
    * @return {Object}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getOption = (name, props) => {
     return {
@@ -117,7 +117,7 @@ export default class PassangersSelector extends React.PureComponent {
    * Get menu option
    * @param {React.Props} props
    * @returns {Object}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getOptions = props => {
     return this.supportedNames.map(name => this.getOption(name, props));
@@ -128,7 +128,7 @@ export default class PassangersSelector extends React.PureComponent {
    * @param {String} val
    * @param {String} name
    * @return {Number}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   parseInput = (val, name) => {
     const { props } = this;
@@ -142,7 +142,7 @@ export default class PassangersSelector extends React.PureComponent {
    * Handler specificator function. Return value parse function for a specified name.
    * @param {String} name
    * @return {Function}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getParseInput = name => val => {
     return this.parseInput(val, name);
@@ -152,7 +152,7 @@ export default class PassangersSelector extends React.PureComponent {
    * Menu items builder function
    * @param {React.Props} props
    * @return {React.ReactNode}
-   * @memberof PassangersSelector
+   * @memberof PassengersSelector
    */
   getMenuItems = props => {
     const options = this.getOptions(props);

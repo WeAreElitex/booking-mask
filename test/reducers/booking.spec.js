@@ -72,66 +72,66 @@ describe('Booking', () => {
     expect(newFakeState.flightDates.return).toBe(null);
   });
 
-  it(`should handle ${ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN}`, () => {
+  it(`should handle ${ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN}`, () => {
     expect(
       reducer.booking(undefined, {
-        type: ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN,
+        type: ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN,
         payload: { q: 'react' },
       }),
     ).toMatchSnapshot();
   });
 
-  it(`should toggle isRoundTrip value on ${ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN}`, () => {
+  it(`should toggle isRoundTrip value on ${ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN}`, () => {
     const fakeState = {
-      passangersDropdownIsOpen: true,
+      passengersDropdownIsOpen: true,
     };
     const newFakeState = reducer.booking(fakeState, {
-      type: ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN,
+      type: ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN,
       payload: {},
     });
-    expect(newFakeState.passangersDropdownIsOpen).toBe(false);
+    expect(newFakeState.passengersDropdownIsOpen).toBe(false);
     const nextFakeState = reducer.booking(newFakeState, {
-      type: ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN,
+      type: ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN,
       payload: {},
     });
-    expect(nextFakeState.passangersDropdownIsOpen).toBe(true);
+    expect(nextFakeState.passengersDropdownIsOpen).toBe(true);
   });
 
-  it(`should handle ${ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER}`, () => {
+  it(`should handle ${ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER}`, () => {
     expect(
       reducer.booking(undefined, {
-        type: ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER,
+        type: ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER,
         payload: { data: {} },
       }),
     ).toMatchSnapshot();
   });
 
-  it(`should merge payload data to passangers object ${
-    ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER
+  it(`should merge payload data to passengers object ${
+    ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER
   }`, () => {
     expect(
       reducer.booking(undefined, {
-        type: ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER,
+        type: ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER,
         payload: { data: { infants: 20 } },
       }),
     ).toMatchSnapshot();
   });
 
-  it(`should clear url on ${ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER}`, () => {
+  it(`should clear url on ${ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER}`, () => {
     const fakeState = {
-      passangers: {},
+      passengers: {},
       url: 'BAR',
     };
     const newFakeState = reducer.booking(fakeState, {
-      type: ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER,
+      type: ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER,
       payload: { data: {} },
     });
     expect(newFakeState.url).toBe(null);
   });
 
-  it(`should update total count on ${ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER}`, () => {
+  it(`should update total count on ${ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER}`, () => {
     const fakeState = {
-      passangers: {
+      passengers: {
         adults: 12,
         infants: 5,
         children: 13,
@@ -140,7 +140,7 @@ describe('Booking', () => {
       url: 'FOO',
     };
     const newFakeState = reducer.booking(fakeState, {
-      type: ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER,
+      type: ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER,
       payload: {
         data: {
           adults: 3,
@@ -149,7 +149,7 @@ describe('Booking', () => {
         },
       },
     });
-    expect(newFakeState.passangers.total).toBe(6);
+    expect(newFakeState.passengers.total).toBe(6);
   });
 
   it(`should handle ${ActionTypes.BOOKING_URL_READY}`, () => {

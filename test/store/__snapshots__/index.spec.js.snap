@@ -29,13 +29,13 @@ Object {
     "from": null,
     "invalid": null,
     "isRoundTrip": false,
-    "passangers": Object {
+    "passengers": Object {
       "adults": 1,
       "children": 0,
       "infants": 0,
       "total": 1,
     },
-    "passangersDropdownIsOpen": false,
+    "passengersDropdownIsOpen": false,
     "to": null,
     "url": null,
   },

@@ -3,7 +3,7 @@ import immutable from 'immutability-helper';
 import { ActionTypes } from 'constants/index';
 
 export const bookingState = {
-  passangers: {
+  passengers: {
     total: 1,
     adults: 1,
     children: 0,
@@ -13,7 +13,7 @@ export const bookingState = {
     departure: null,
     return: null,
   },
-  passangersDropdownIsOpen: false,
+  passengersDropdownIsOpen: false,
   isRoundTrip: false,
   from: null,
   to: null,
@@ -46,16 +46,16 @@ export default {
           url: { $set: null },
         });
       },
-      [ActionTypes.BOOKING_TOGGLE_PASSANGERS_DROPDOWN]: state => {
-        const passangersDropdownIsOpen = !state.passangersDropdownIsOpen;
+      [ActionTypes.BOOKING_TOGGLE_PASSENGERS_DROPDOWN]: state => {
+        const passengersDropdownIsOpen = !state.passengersDropdownIsOpen;
         return immutable(state, {
-          passangersDropdownIsOpen: { $set: passangersDropdownIsOpen },
+          passengersDropdownIsOpen: { $set: passengersDropdownIsOpen },
         });
       },
-      [ActionTypes.BOOKING_CHANGE_PASSANGERS_NUMBER]: (state, { payload }) => {
+      [ActionTypes.BOOKING_CHANGE_PASSENGERS_NUMBER]: (state, { payload }) => {
         const total = Object.keys(payload.data).reduce((acc, key) => acc + payload.data[key], 0);
         return immutable(state, {
-          passangers: { $set: Object.assign({}, state.passangers, payload.data, { total }) },
+          passengers: { $set: Object.assign({}, state.passengers, payload.data, { total }) },
           url: { $set: null },
         });
       },

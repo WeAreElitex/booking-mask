@@ -33,14 +33,14 @@ export function constructUrlFromBooking(
   prefix: string,
   postFix: string = '',
 ): string {
-  const passangers = `adults-${booking.passangers.adults}/children-${
-    booking.passangers.children
-  }/infants-${booking.passangers.infants}`;
+  const passengers = `adults-${booking.passengers.adults}/children-${
+    booking.passengers.children
+  }/infants-${booking.passengers.infants}`;
   const outboundFlight = `${booking.from}-${booking.to}/from-${booking.flightDates.departure}`;
   const returnFlight =
     booking.isRoundTrip && booking.flightDates.return
       ? `/Return/${booking.to}-${booking.from}/from-${booking.flightDates.return}`
       : '';
 
-  return `${prefix}/Outbound/${outboundFlight}${returnFlight}/${passangers}/${postFix}`;
+  return `${prefix}/Outbound/${outboundFlight}${returnFlight}/${passengers}/${postFix}`;
 }

@@ -105,7 +105,7 @@ describe('booking', () => {
             flightDates: {
               departure: '11-11-2222',
             },
-            passangers: {
+            passengers: {
               adults: 1,
               children: 0,
               infants: 0,
