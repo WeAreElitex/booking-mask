@@ -35,3 +35,10 @@ $ yarn install
 
 `npm test`
 
+### Implementation details
+
+- The booking mask assignment is implemented by the `containers/BookingMask.jsx` component;
+- All React tree above `BookingMask.jsx` is at most the default boilerplate, used for the demo purposes;
+- `BookingMask.jsx` implements information expert GRASP pattern;
+- All `BookingMask.jsx` child components not aware of redux;
+- The direct use of `dispatch` inside `BookingMask.jsx` is intentional and done for the testing convinience and consistency.

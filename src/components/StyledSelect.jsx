@@ -128,6 +128,15 @@ class StyledSelect extends React.PureComponent {
 
   inputRef = null;
 
+  /**
+   * Return the object with re-defined select's component
+   * @param {Object} comp
+   * @param {Boolean} withGrayBox
+   * @param {Boolean} withDropdownIndicator
+   * @param {Boolean} withIndicatorSeparator
+   * @return {Object}
+   * @memberof StyledSelect
+   */
   getComponents = (comp, withGrayBox, withDropdownIndicator, withIndicatorSeparator) => {
     const addition = withGrayBox
       ? { Control: this.ControlComponent, Option, Input: this.Input }
@@ -143,6 +152,11 @@ class StyledSelect extends React.PureComponent {
     });
   };
 
+  /**
+   * Select's change event handler
+   * @param {Object} e
+   * @memberof StyledSelect
+   */
   onChange = e => {
     const { onChange } = this.props;
     this.setMenuState(false);
@@ -152,6 +166,11 @@ class StyledSelect extends React.PureComponent {
     }
   };
 
+  /**
+   * Select's blur event handler
+   * @param {Object} e
+   * @memberof StyledSelect
+   */
   onBlur = e => {
     const { onBlur } = this.props;
     this.setMenuState(false);
@@ -161,6 +180,11 @@ class StyledSelect extends React.PureComponent {
     }
   };
 
+  /**
+   * Custom select's control component
+   * @param {Object} props
+   * @memberof StyledSelect
+   */
   ControlComponent = props => {
     const { selectProps, hasValue, children } = props;
     const code = selectProps.value ? selectProps.value.code : '';
@@ -196,6 +220,11 @@ class StyledSelect extends React.PureComponent {
     );
   };
 
+  /**
+   * Custom select's input component
+   * @param {Object} props
+   * @memberof StyledSelect
+   */
   Input = props => {
     return (
       <components.Input
