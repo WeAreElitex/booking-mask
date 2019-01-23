@@ -54,20 +54,20 @@ export class BookingMask extends React.PureComponent {
     theme: {},
   };
 
-  componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props;
-    const { changedTo } = treeChanges(this.props, nextProps);
+  componentDidUpdate(props) {
+    const { dispatch, airportsList } = this.props;
+    const { changedTo } = treeChanges(props, this.props);
 
     if (changedTo('airportsList.status', STATUS.ERROR)) {
-      dispatch(showAlert(nextProps.airportsList.message, { variant: 'danger' }));
+      dispatch(showAlert(airportsList.message, { variant: 'danger' }));
     }
-    // that allows to dismiss open date / route selectors on click
+
     if (
       changedTo('booking.invalid', 'from') ||
       changedTo('booking.invalid', 'to') ||
       changedTo('booking.invalid', 'departure')
     ) {
-      setTimeout(() => window.addEventListener('click', this.dismissInvalid));
+      window.addEventListener('click', this.dismissInvalid);
     }
   }
 
@@ -173,10 +173,11 @@ export class BookingMask extends React.PureComponent {
    * Submit button click handler
    * @memberof BookingMask
    */
-  onSubmit = () => {
+  onSubmit = e => {
     const { dispatch } = this.props;
 
     dispatch(submit());
+    e.stopPropagation();
   };
 
   render() {
