@@ -4,7 +4,7 @@
 // test task that would be a huge overhead
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
@@ -19,6 +19,7 @@ import {
   ANCHOR_LEFT,
 } from 'react-dates/src/constants';
 import isInclusivelyAfterDay from 'react-dates/src/utils/isInclusivelyAfterDay';
+import FloatLabel from 'components/FloatLabel';
 
 const propTypes = {
   // example props for the demo
@@ -81,6 +82,14 @@ const defaultProps = {
   stateDateWrapper: date => date,
 };
 
+const endDateWrapperStyle = {
+  marginLeft: 'calc(50% + 25px)',
+  display: 'relative',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+};
+
 class DateRangePickerWrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -114,7 +123,14 @@ class DateRangePickerWrapper extends React.Component {
 
   render() {
     const { focusedInput } = this.state;
-    const { customDayStyles } = this.props;
+    const {
+      startDate,
+      endDate,
+      customDayStyles,
+      startDatePlaceholderText,
+      endDatePlaceholderText,
+      disabled,
+    } = this.props;
 
     // autoFocus, autoFocusEndDate, initialStartDate and initialEndDate are helper props for the
     // example wrapper but are not props on the SingleDatePicker itself and
@@ -129,22 +145,39 @@ class DateRangePickerWrapper extends React.Component {
     ]);
 
     return (
-      <DateRangePicker
-        {...props}
-        required={true}
-        onDatesChange={this.onDatesChange}
-        onFocusChange={this.onFocusChange}
-        focusedInput={this.props.focusedInput || focusedInput}
-        renderCalendarDay={prp => (
-          <CustomizableCalendarDay
-            {...prp}
-            {...customDayStyles}
-            modifiers={prp.modifiers || new Set()}
+      <Fragment>
+        <FloatLabel
+          isOpen={focusedInput === START_DATE || !!startDate}
+          label={startDatePlaceholderText}
+          clickHandler={() => this.onFocusChange(START_DATE)}
+        />
+        <div style={endDateWrapperStyle}>
+          <FloatLabel
+            isOpen={focusedInput === END_DATE || !!endDate}
+            label={endDatePlaceholderText}
+            clickHandler={() => disabled !== END_DATE && this.onFocusChange(END_DATE)}
           />
-        )}
-        startDate={this.props.startDate}
-        endDate={this.props.endDate}
-      />
+        </div>
+
+        <DateRangePicker
+          {...props}
+          required={true}
+          onDatesChange={this.onDatesChange}
+          onFocusChange={this.onFocusChange}
+          startDatePlaceholderText=""
+          endDatePlaceholderText=""
+          focusedInput={this.props.focusedInput || focusedInput}
+          renderCalendarDay={prp => (
+            <CustomizableCalendarDay
+              {...prp}
+              {...customDayStyles}
+              modifiers={prp.modifiers || new Set()}
+            />
+          )}
+          startDate={startDate}
+          endDate={endDate}
+        />
+      </Fragment>
     );
   }
 }

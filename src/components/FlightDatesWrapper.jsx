@@ -6,9 +6,10 @@ const FlightDatesWrapper = styled.div`
   width: 100%;
   display: table-cell;
   bacground-color: white;
+  position: relative;
   input {
     height: 100%;
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.sizes.inputFontSize};
     padding-left: 10px;
   }
   .DateRangePicker {
@@ -20,6 +21,7 @@ const FlightDatesWrapper = styled.div`
     }
   }
   .DateInput {
+    padding-top: 10px;
     height: 100%;
     width: 50%;
     &:last-child {

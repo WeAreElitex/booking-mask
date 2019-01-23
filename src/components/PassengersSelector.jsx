@@ -5,6 +5,7 @@ import { utils } from 'styled-minimal';
 import NumericInput from 'react-numeric-input';
 import StyledDropdownToggle from 'components/StyledDropdownToggle';
 import OptionContainer from 'components/OptionContainer';
+import FloatLabel from 'components/FloatLabel';
 import { Dropdown, DropdownMenu, DropdownItem } from 'reactstrap';
 
 const { spacer } = utils;
@@ -179,20 +180,25 @@ export default class PassengersSelector extends React.PureComponent {
   render() {
     const { totalLabel, total, dropdownIsOpen, toggleDropdown } = this.props;
     const menuItems = this.getMenuItems(this.props);
+    const count = this.getCurrentCountObject();
+    const label = `${count.adults} Adults, ${count.children} Children, ${count.infants} Infants`;
 
     return (
-      <Dropdown isOpen={dropdownIsOpen} toggle={toggleDropdown} size="lg">
-        <StyledDropdownToggle color="light" caret>
-          <div>{`${totalLabel} ${total}`}</div>
-        </StyledDropdownToggle>
-        <DropdownMenu>
-          {menuItems}
-          <DropdownItem divider />
-          <DropdownItem style={{ height: '40px', textAlign: 'center', fontSize: '1.4rem' }}>
-            Close
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+      <div style={{ position: 'relative' }}>
+        <Dropdown isOpen={dropdownIsOpen} toggle={toggleDropdown} size="lg">
+          <FloatLabel isOpen={true} label={label} />
+          <StyledDropdownToggle color="light" caret>
+            <div>{`${totalLabel} ${total}`}</div>
+          </StyledDropdownToggle>
+          <DropdownMenu>
+            {menuItems}
+            <DropdownItem divider />
+            <DropdownItem style={{ height: '40px', textAlign: 'center', fontSize: '1.4rem' }}>
+              Close
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </div>
     );
   }
 }

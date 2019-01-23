@@ -5,6 +5,7 @@
   "version": "2019.1.0",
   "author": "Sergey Ivanichenko <sivanichenko@elitex.systems>",
   "dependencies": {
+    "@material/react-floating-label": "^0.8.0",
     "bootstrap": "^4.2.1",
     "classlist-polyfill": "^1.2.0",
     "classnames": "^2.2.6",

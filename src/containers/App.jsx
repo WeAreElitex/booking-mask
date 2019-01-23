@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Router } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
@@ -28,14 +26,8 @@ const AppWrapper = styled.div`
   transition: opacity 0.5s;
 `;
 
-export class App extends React.Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-  };
-
+export default class App extends React.Component {
   render() {
-    const { dispatch } = this.props;
-
     return (
       <Router history={history}>
         <ThemeProvider theme={theme}>
@@ -53,7 +45,7 @@ export class App extends React.Component {
                 <Header>
                   <Heading>Booking mask test assignment</Heading>
                 </Header>
-                <BookingMask dispatch={dispatch} />
+                <BookingMask />
               </Container>
             </Screen>
             <SystemAlerts />
@@ -64,10 +56,3 @@ export class App extends React.Component {
     );
   }
 }
-
-/* istanbul ignore next */
-function mapStateToProps() {
-  return {};
-}
-
-export default connect(mapStateToProps)(App);

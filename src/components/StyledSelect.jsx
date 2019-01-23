@@ -5,6 +5,7 @@ import memoize from 'lodash/memoize';
 import { utils } from 'styled-minimal';
 import Select, { components } from 'react-select';
 import TextTruncate from 'react-text-truncate';
+import FloatLabel from 'components/FloatLabel';
 
 const { spacer } = utils;
 
@@ -69,34 +70,6 @@ const GetStyledSelect = memoize(
     `,
 );
 
-const ControlComponent = props => {
-  const { selectProps, hasValue, children } = props;
-  const code = selectProps.value ? selectProps.value.code : '';
-  const box = hasValue ? (
-    <GrayBoxWrapper>
-      {' '}
-      <GrayBox>{code}</GrayBox>{' '}
-    </GrayBoxWrapper>
-  ) : (
-    ''
-  );
-
-  return (
-    <div className="control-wrapper">
-      <components.Control {...props}>
-        {children}
-        {box}
-      </components.Control>
-    </div>
-  );
-};
-
-ControlComponent.propTypes = {
-  children: PropTypes.array,
-  hasValue: PropTypes.bool,
-  selectProps: PropTypes.object,
-};
-
 const IndicatorSeparator = ({ innerProps }) => {
   return <span {...innerProps} />;
 };
@@ -144,49 +117,160 @@ const DropdownIndicator = props => {
   );
 };
 
-const getComponents = (comp, withGrayBox, withDropdownIndicator, withIndicatorSeparator) => {
-  const addition = withGrayBox ? { Control: ControlComponent, Option } : {};
-  Object.assign(addition, withDropdownIndicator ? {} : { DropdownIndicator });
-  Object.assign(addition, withIndicatorSeparator ? {} : { IndicatorSeparator });
-  return Object.assign({}, comp, addition);
-};
+class StyledSelect extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-const StyledSelect = ({
-  components: comp,
-  theme,
-  withGrayBox,
-  withDropdownIndicator,
-  withIndicatorSeparator,
-  ...props
-}) => {
-  const LocalStyledSelect = GetStyledSelect(theme.sizes.inputMinWidth);
+    this.state = {
+      isOpen: false,
+    };
+  }
 
-  return (
-    <LocalStyledSelect
-      components={getComponents(comp, withGrayBox, withDropdownIndicator, withIndicatorSeparator)}
-      {...props}
-      styles={{
-        option: provided => ({
-          ...provided,
-          textAlign: 'left',
-        }),
-      }}
-      theme={componentTheme => ({
-        ...componentTheme,
-        borderRadius: 0,
-        colors: {
-          ...componentTheme.colors,
-          primary25: theme.palette.secondary,
-          primary50: theme.palette.actionColor,
-          primary: theme.palette.appColor,
-        },
-      })}
-    />
-  );
-};
+  inputRef = null;
+
+  getComponents = (comp, withGrayBox, withDropdownIndicator, withIndicatorSeparator) => {
+    const addition = withGrayBox
+      ? { Control: this.ControlComponent, Option, Input: this.Input }
+      : {};
+    Object.assign(addition, withDropdownIndicator ? {} : { DropdownIndicator });
+    Object.assign(addition, withIndicatorSeparator ? {} : { IndicatorSeparator });
+    return Object.assign({}, comp, addition);
+  };
+
+  setMenuState = state => {
+    this.setState({
+      isOpen: state,
+    });
+  };
+
+  onChange = e => {
+    const { onChange } = this.props;
+    this.setMenuState(false);
+
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
+  onBlur = e => {
+    const { onBlur } = this.props;
+    this.setMenuState(false);
+
+    if (onBlur) {
+      onBlur(e);
+    }
+  };
+
+  ControlComponent = props => {
+    const { selectProps, hasValue, children } = props;
+    const code = selectProps.value ? selectProps.value.code : '';
+    const box = hasValue ? (
+      <GrayBoxWrapper>
+        {' '}
+        <GrayBox>{code}</GrayBox>{' '}
+      </GrayBoxWrapper>
+    ) : (
+      ''
+    );
+
+    return (
+      <div className="control-wrapper">
+        <FloatLabel
+          isOpen={
+            props.selectProps.isOpen || !!props.selectProps.value || !!props.selectProps.inputValue
+          }
+          label={props.selectProps.placeholder}
+          clickHandler={() => {
+            this.setMenuState(true);
+            if (this.inputRef) {
+              this.inputRef.focus();
+            }
+          }}
+        />
+
+        <components.Control {...props}>
+          {children}
+          {box}
+        </components.Control>
+      </div>
+    );
+  };
+
+  Input = props => {
+    return (
+      <components.Input
+        {...props}
+        innerRef={input => {
+          this.inputRef = input;
+          return props.innerRef(input);
+        }}
+      />
+    );
+  };
+
+  render() {
+    const {
+      theme,
+      withGrayBox,
+      components: comp,
+      withDropdownIndicator,
+      withIndicatorSeparator,
+      menuIsOpen,
+    } = this.props;
+    const { isOpen } = this.state;
+    const LocalStyledSelect = GetStyledSelect(theme.sizes.inputMinWidth);
+
+    return (
+      <LocalStyledSelect
+        {...this.props}
+        menuIsOpen={isOpen || menuIsOpen}
+        autoFocus={isOpen}
+        components={this.getComponents(
+          comp,
+          withGrayBox,
+          withDropdownIndicator,
+          withIndicatorSeparator,
+        )}
+        onChange={this.onChange}
+        onBlur={this.onBlur}
+        styles={{
+          option: provided => ({
+            ...provided,
+            textAlign: 'left',
+          }),
+          placeholder: provided => ({
+            ...provided,
+            display: 'none',
+          }),
+          input: provided => ({
+            ...provided,
+            paddingTop: '10px',
+          }),
+          singleValue: provided => ({
+            ...provided,
+            paddingTop: '10px',
+          }),
+        }}
+        theme={componentTheme => ({
+          ...componentTheme,
+          borderRadius: 0,
+          colors: {
+            ...componentTheme.colors,
+            primary25: theme.palette.secondary,
+            primary50: theme.palette.actionColor,
+            primary: theme.palette.appColor,
+          },
+        })}
+      />
+    );
+  }
+}
 
 StyledSelect.propTypes = {
   components: PropTypes.object,
+  menuIsOpen: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
   theme: PropTypes.object,
   withDropdownIndicator: PropTypes.bool,
   withGrayBox: PropTypes.bool,
@@ -197,4 +281,4 @@ StyledSelect.defaultProps = {
   components: {},
 };
 
-export default withTheme(React.memo(StyledSelect));
+export default withTheme(StyledSelect);

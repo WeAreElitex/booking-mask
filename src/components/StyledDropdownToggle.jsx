@@ -20,6 +20,7 @@ const StyledDropdownToggle = styled(DropdownToggle)`
   }
   div {
     display: flex;
+    padding-top: 10px;
     font-size: ${props => props.theme.sizes.inputFontSize};
     color: ${props => props.theme.palette.textDefaultColor};
   }
