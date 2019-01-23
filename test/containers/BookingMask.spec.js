@@ -88,7 +88,7 @@ describe('BookingMask', () => {
 
   it('should dispatch an action when onSubmit method is called', () => {
     const instance = wrapper.instance();
-    instance.onSubmit();
+    instance.onSubmit({ stopPropagation: () => {} });
 
     expect(mockDispatch).toHaveBeenCalledWith({
       payload: {},
