@@ -205,7 +205,7 @@
     "publish": "node tools publish",
     "bundlesize": "bundlesize",
     "precommit": "node tools upstream && lint-staged && flow",
-    "predeploy": "PUBLIC_URL=\"/booking-mask\" npm run build",
+    "predeploy": "PUBLIC_URL=/booking-mask/ npm run build",
     "deploy": "gh-pages -d build"
   },
   "husky": {
