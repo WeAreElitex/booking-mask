@@ -18,6 +18,8 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 
+const PUBLIC_URL = process.env.PUBLIC_URL || '/';
+
 module.exports = {
   appPath: resolvePath('.'),
   appAssets: resolvePath('assets'),
@@ -32,6 +34,6 @@ module.exports = {
   dotenv: resolvePath('.env'),
   nodeModules: resolvePath('node_modules'),
   packageJson: resolvePath('package.json'),
-  publicPath: resolvePath(''),
+  publicPath: PUBLIC_URL,
   test: resolvePath('test'),
 };
