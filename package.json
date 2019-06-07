@@ -4,6 +4,7 @@
   "description": "Bokking Mask Test Assignment",
   "version": "2019.1.0",
   "author": "Sergey Ivanichenko <sivanichenko@elitex.systems>",
+  "homepage": "https://WeAreElitex.github.io/booking-mask",
   "dependencies": {
     "@material/react-floating-label": "^0.8.0",
     "bootstrap": "^4.2.1",
@@ -12,6 +13,7 @@
     "ease-component": "^1.0.0",
     "events-polyfill": "^2.1.0",
     "fbjs": "^1.0.0",
+    "gh-pages": "^2.0.1",
     "history": "^4.7.2",
     "immutability-helper": "^2.9.0",
     "install": "^0.12.2",
@@ -199,10 +201,12 @@
     "validate": "npm run lint && npm run lint:styles && npm run test:coverage && npm run test:e2e:run && npm run bundlesize",
     "setup": "npm install && npm run validate",
     "serve": "serve --listen 3000 build",
-    "deploy": "node tools deploy",
+    "deploy:node": "node tools deploy",
     "publish": "node tools publish",
     "bundlesize": "bundlesize",
-    "precommit": "node tools upstream && lint-staged && flow"
+    "precommit": "node tools upstream && lint-staged && flow",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
